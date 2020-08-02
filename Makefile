@@ -36,3 +36,8 @@ dashboards:
 	oc apply -f deploy/examples/dashboards/DashboardWithCustomFolder.yaml -n grafana
 	oc apply -f deploy/examples/dashboards/SimpleDashboard.yaml -n grafana
 	oc apply -f deploy/examples/dashboards/KeycloakDashboard.yaml -n grafana
+
+.PHONY: minikube
+minikube:
+	-minikube start
+	-minikube addons enable ingress
