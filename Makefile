@@ -41,3 +41,16 @@ dashboards:
 minikube:
 	-minikube start
 	-minikube addons enable ingress
+
+.PHONY: minikube/stop
+minikube/stop:
+	-minikube stop
+
+.PHONY: minikube/delete
+minikube/delete:
+	-minikube delete
+
+## restart minikube
+.PHONY: minikube/reset
+minikube/reset: minikube/stop minikube/delete minikube/start
+	
