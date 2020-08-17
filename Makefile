@@ -54,3 +54,7 @@ minikube/delete:
 .PHONY: minikube/reset
 minikube/reset: minikube/stop minikube/delete minikube/start
 	
+## Get OCM cluster credentials 
+.PHONY: get/ocm/credentials
+get/ocm/credentials: 
+	ocm get /api/clusters_mgmt/v1/clusters/${CLUSTERID}/credentials | jq -r .admin
