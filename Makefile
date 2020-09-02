@@ -58,3 +58,10 @@ minikube/reset: minikube/stop minikube/delete minikube/start
 .PHONY: get/ocm/credentials
 get/ocm/credentials: 
 	ocm get /api/clusters_mgmt/v1/clusters/${CLUSTERID}/credentials | jq -r .admin
+	
+## You're going to save a whole 5 seconds and about 10 keystrokes with this one 
+.PHONY: git/update
+git/update:
+	git fetch --all
+	git pull
+	
