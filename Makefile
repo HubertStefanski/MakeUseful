@@ -33,9 +33,9 @@ reset/test: cluster/cleanup cluster/prepare/local dashboards
 
 .PHONY: dashboards
 dashboards:
-	oc apply -f deploy/examples/dashboards/DashboardWithCustomFolder.yaml -n grafana
-	oc apply -f deploy/examples/dashboards/SimpleDashboard.yaml -n grafana
-	oc apply -f deploy/examples/dashboards/KeycloakDashboard.yaml -n grafana
+	oc apply -f deploy/examples/dashboards/DashboardWithCustomFolder.yaml -n ${NAMESPACE}
+	oc apply -f deploy/examples/dashboards/SimpleDashboard.yaml -n ${NAMESPACE}
+	oc apply -f deploy/examples/dashboards/KeycloakDashboard.yaml -n ${NAMESPACE}
 
 .PHONY: minikube
 minikube:
