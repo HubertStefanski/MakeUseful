@@ -58,3 +58,9 @@ minikube/reset: minikube/stop minikube/delete minikube/start
 .PHONY: get/ocm/credentials
 get/ocm/credentials: 
 	ocm get /api/clusters_mgmt/v1/clusters/${CLUSTERID}/credentials | jq -r .admin
+
+## Golang related
+.PHONY: benchmark
+benchmark:
+	 go test -v --bench . --benchmem
+
