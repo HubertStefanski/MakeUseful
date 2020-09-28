@@ -72,4 +72,12 @@ benchmark:
 git/update:
 	git fetch --all
 	git pull
-	
+
+## Xampp abstraction, sheer laziness is why I need this
+.PHONY: lamp/start
+lamp/start:
+	sudo /opt/lampp/lampp start
+
+.PHONY: lamp/stop
+lamp/stop:
+	sudo /opt/lampp/lampp stop
