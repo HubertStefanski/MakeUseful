@@ -36,6 +36,8 @@ dashboards:
 	oc apply -f deploy/examples/dashboards/DashboardWithCustomFolder.yaml -n ${NAMESPACE}
 	oc apply -f deploy/examples/dashboards/SimpleDashboard.yaml -n ${NAMESPACE}
 	oc apply -f deploy/examples/dashboards/KeycloakDashboard.yaml -n ${NAMESPACE}
+	oc apply -f deploy/examples/dashboards/DashboardFromURL.yaml -n ${NAMESPACE}
+
 
 .PHONY: minikube
 minikube:
