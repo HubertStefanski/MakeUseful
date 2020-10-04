@@ -11,6 +11,17 @@ cluster/prepare/local:
 	kubectl apply -f deploy/examples/Grafana.yaml -n ${NAMESPACE}
 
 
+## Test Grafana with env var admin credentials
+.PHONY: cluster/prepare/local/env
+cluster/prepare/local/env:
+	-kubectl create namespace ${NAMESPACE}
+	kubectl apply -f deploy/crds
+	kubectl apply -f deploy/roles -n ${NAMESPACE}
+	kubectl apply -f deploy/cluster_roles
+	kubectl apply -f depploy/examples/env/Grafana.yaml -n ${NAMESPACE}
+	kubectl apply -f deploy/examples/env/secret.yaml -n ${NAMESPACE}
+
+
 .PHONY: cluster/cleanup	
 cluster/cleanup: operator/stop
 	-kubectl delete deployment grafana-deployment -n ${NAMESPACE}
