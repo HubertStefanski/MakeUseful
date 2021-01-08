@@ -1,5 +1,8 @@
 ##MakeUseful misc recipies for whatever I need at the time, probably not so useful for you
 
+pullSecretPath = ~/crc/pull-secret
+
+
 ##Grafana-Operator related
 
 .PHONY: cluster/prepare/local
@@ -92,3 +95,17 @@ lamp/start:
 .PHONY: lamp/stop
 lamp/stop:
 	sudo /opt/lampp/lampp stop
+
+.PHONY: crc/login/dev
+crc/login/dev:
+	oc logout
+	oc login -u developer -p developer https://api.crc.testing:6443
+
+.PHONY: crc/login/kubeadmin
+crc/login/kubeadmin:
+	oc logout
+	oc login -u kubeadmin -p password https://api.crc.testing:6443
+
+.PHONY: crc/start
+crc/start:
+	crc start -p $(pullSecretPath)
