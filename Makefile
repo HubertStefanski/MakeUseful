@@ -1,6 +1,7 @@
 ##MakeUseful misc recipies for whatever I need at the time, probably not so useful for you
 
-pullSecretPath = ~/crc/pull-secret
+PULLSECRETPATH = ~/crc/pull-secret
+KUBEPASS ?= "password"
 
 
 ##Grafana-Operator related
@@ -104,8 +105,8 @@ crc/login/dev:
 .PHONY: crc/login/kubeadmin
 crc/login/kubeadmin:
 	oc logout
-	oc login -u kubeadmin -p password https://api.crc.testing:6443
+	oc login -u kubeadmin -p $(KUBEPASS) https://api.crc.testing:6443
 
 .PHONY: crc/start
 crc/start:
-	crc start -p $(pullSecretPath)
+	crc start -p $(PULLSECRETPATH)
